@@ -1,0 +1,114 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Reset / Normalize
+// ========================================
+
+
+
+:root {
+    --stroinova-hover-color: #638e39;
+    --stroinova-black: #000;
+    --stroinova-white: #fff;
+    --stroinova-backgroung: #f3f1f0;
+    --stroinova-primary-1: #e18411;
+    --stroinova-primary-2: #8aad69;
+    --stroinova-gray-1: #454545;
+    --stroinova-gray-2: #d9d9d9;
+    --stroinova-gray-gray-3: #818181;
+    --font-family: "Manrope", sans-serif;
+    --second-family: "Comfortaa", sans-serif;
+    --third-family: "Sansation", sans-serif;
+    --font3: "Roboto", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-family);
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-normal;
+    color: $color-text;
+    background-color: $color-bg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: $line-height-tight;
+  font-weight: $font-weight-bold;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+// Remove focus ring for mouse users, keep for keyboard
+:focus:not(:focus-visible) {
+  outline: none;
+}

@@ -1,0 +1,19 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Страница не найдена" %}
+{% set description = "Запрашиваемая страница не существует." %}
+{% set robots = "noindex, nofollow" %}
+
+{% block content %}
+<section class="section section--error" aria-labelledby="error-heading">
+  <div class="container">
+    <div class="error-page">
+      <p class="error-page__code" aria-hidden="true">404</p>
+      <h1 id="error-heading" class="error-page__title">Страница не найдена</h1>
+      <p class="error-page__text">
+        Возможно, она была удалена или вы перешли по неверной ссылке.
+      </p>
+      <a href="/" class="btn btn--primary btn--lg">На главную</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

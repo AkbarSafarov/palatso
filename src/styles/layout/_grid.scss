@@ -1,0 +1,26 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Grid
+// ========================================
+
+.grid {
+  display: grid;
+  gap: $spacing-6;
+
+  &--2 { grid-template-columns: repeat(1, 1fr); }
+  &--3 { grid-template-columns: repeat(1, 1fr); }
+  &--4 { grid-template-columns: repeat(1, 1fr); }
+
+  @include respond-to('sm') {
+    &--2 { grid-template-columns: repeat(2, 1fr); }
+    &--4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @include respond-to('md') {
+    &--3 { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @include respond-to('lg') {
+    &--4 { grid-template-columns: repeat(4, 1fr); }
+  }
+}

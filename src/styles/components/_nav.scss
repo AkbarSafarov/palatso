@@ -1,0 +1,150 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Navigation
+// ========================================
+
+.nav {
+    &__list { display: flex; align-items: center; flex-wrap: nowrap; }
+    &__item { position: relative; flex-shrink: 0; }
+
+    &__item--more { position: relative; }
+
+    &__more {
+        @include button-reset;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-black);
+        padding: 10px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all $transition-base;
+        white-space: nowrap;
+
+        svg { fill: none; }
+
+        &:hover,
+        &[aria-expanded='true'] {
+            color: $color-primary;
+            background: #fff;
+        }
+    }
+
+    &__overflow {
+        list-style: none;
+        margin: 0;
+        padding: $spacing-2;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background: $color-bg;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-md;
+        border: 1px solid $color-border;
+        min-width: 200px;
+        z-index: $z-dropdown;
+
+        .nav__item {
+            display: block;
+        }
+    }
+
+    &__link {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-black);
+        padding: 10px 16px;
+        display: flex;
+        gap: 13px;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 20px;
+        transition: all $transition-base;
+
+        svg {
+            path {
+
+                transition: all $transition-base;
+            }
+        }
+
+        &:hover, &[aria-current='page'] {
+            color: $color-primary;
+            background: #fff;
+
+            svg {
+                path {
+                    fill: $color-primary !important;
+                }
+            }
+        }
+    }
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background-color: $color-bg;
+  padding: $spacing-6;
+  transform: translateX(-100%);
+  transition: transform $transition-base;
+  z-index: $z-overlay;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  &.is-open { transform: translateX(0); }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    width: 40px;
+    height: 40px;
+    margin-bottom: $spacing-4;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: $color-text;
+    border-radius: $radius-md;
+    transition: color $transition-fast, background-color $transition-fast;
+    flex-shrink: 0;
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-bg-alt;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-lg;
+    color: $color-text;
+    text-decoration: none;
+    border-radius: $radius-md;
+    @include transition(background-color, color);
+
+    &:hover, &[aria-current='page'] {
+      background-color: $color-bg-alt;
+      color: $color-primary;
+    }
+  }
+}

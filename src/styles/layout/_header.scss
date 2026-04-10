@@ -1,0 +1,221 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Header
+// ========================================
+
+.header__burger {
+    display: none;
+    cursor: pointer;
+    flex: 0 0 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #fff;
+    margin-left: auto;
+
+    @media all and (max-width: 1024px) {
+        display: flex;
+    }
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 27px 0;
+    width: 100%;
+
+    @include respond-below('xl') {
+        .container {
+            padding-inline: 15px;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        flex: 0 0 152px;
+        margin-right: 13px;
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            vertical-align: top;
+            font-size: 0;
+            color: #ffffff;
+        }
+    }
+
+    &__desc {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 155%;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #d5d5d5;
+        flex: 0 0 90px;
+    }
+
+    &__center {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        justify-content: center;
+    }
+
+    &__menu {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            li {
+                a {
+                    display: block;
+                    padding: 5px;
+                    text-decoration: none;
+                    font-family: var(--font-family);
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 155%;
+                    color: #fff;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    &__search {
+        flex: 0 0 32px;
+
+        &_btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        gap: 46px;
+        white-space: nowrap;
+
+        @include respond-below('xl') {
+            gap: 24px;
+        }
+    }
+
+    &__address {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 155%;
+        color: #fff;
+        margin-bottom: 5px;
+
+        @media all and (max-width: 1024px) {
+            svg use{
+                color: #C16565;
+            }
+        }
+    }
+
+    &__phone {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 155%;
+        color: #fff;
+    }
+
+    &__time {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 155%;
+        color: #fff;
+        margin-bottom: 11px;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 155%;
+        color: #fff;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    @media all and (max-width: 1024px) {
+        padding: 4px 0 10px;
+
+        &__inner {
+            flex-wrap: wrap;
+        }
+
+        &__right {
+            flex: none;
+            width: 100%;
+            display: block;
+            order: -1;
+        }
+
+        .header__contacts_col {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+
+            &-right {
+                display: none;
+            }
+
+            .header__address {
+                margin: 0;
+            }
+        }
+
+        .header__center {
+            display: none;
+        }
+    }
+}

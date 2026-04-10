@@ -1,0 +1,54 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Button
+// ========================================
+
+.btn {
+  @include button-reset;
+  @include flex-center;
+  gap: $spacing-2;
+  display: inline-flex;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  @include transition(background-color, color, border-color, box-shadow);
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-text-inverse;
+    border: 2px solid $color-primary;
+
+    &:hover { background-color: $color-primary-dark; border-color: $color-primary-dark; }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+
+    &:hover { background-color: $color-primary; color: $color-text-inverse; }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $color-text;
+    border: 2px solid transparent;
+
+    &:hover { background-color: $color-bg-alt; }
+  }
+
+  &--sm { padding: $spacing-2 $spacing-4; font-size: $font-size-sm; }
+  &--lg { padding: $spacing-4 $spacing-8; font-size: $font-size-lg; }
+  &--full { width: 100%; }
+}

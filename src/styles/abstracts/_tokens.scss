@@ -1,0 +1,5 @@
+// Safe import file for partials — no sass:* builtins here
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';
+@forward 'breakpoints';

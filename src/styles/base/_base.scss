@@ -1,0 +1,78 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Base / Global styles
+// ========================================
+
+::selection {
+  background-color: $color-primary;
+  color: $color-text-inverse;
+}
+
+// Placeholder image sizing fix (prevents CLS)
+img {
+  display: block;
+
+  &[width][height] {
+    height: auto;
+  }
+
+  &[loading='lazy'] {
+    background-color: $color-bg-alt;
+  }
+}
+
+a[href^="tel:"] {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Smooth focus transition
+*:focus-visible {
+  transition: outline-offset $transition-fast;
+}
+
+// Skip link
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: $spacing-4;
+  z-index: $z-toast;
+  padding: $spacing-3 $spacing-6;
+  background-color: $color-primary;
+  color: $color-text-inverse;
+  border-radius: 0 0 $radius-md $radius-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Image placeholder — prevents CLS
+.card__image img,
+.hero__image img {
+  background-color: $color-bg-alt;
+}
+
+.btn_button {
+    display: inline-block;
+    vertical-align: top;
+    padding: $spacing-4 calc($spacing-8 - 2px);
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    background: $color-primary;
+    border-radius: $radius-sm;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transition: $transition-fast;
+
+    &:hover {
+        opacity: .8;
+    }
+}

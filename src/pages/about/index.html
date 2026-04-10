@@ -1,0 +1,35 @@
+{% extends "layouts/base.njk" %}
+{% set title = "О компании" %}
+{% set description = "" %}
+{% set canonical = "https://fasady-mebeli.ru/" %}
+
+{% block content %}
+
+  <!-- О компании -->
+  <section class="section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section__header">
+        <h1 id="about-heading" class="section__title">О компании</h1>
+
+      </div>
+      <!-- Контент о компании -->
+    </div>
+  </section>
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Палаццо",
+    "url": "https://fasady-mebeli.ru/",
+    "logo": "https://fasady-mebeli.ru/favicon.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+7 910 193 79 99",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Container
+// ========================================
+
+.container {
+    @include container;
+
+    @include respond-below('lg') {
+        padding-inline: $container-padding-mobile;
+    }
+}
+
+.container--narrow {
+  max-width: 768px;
+}
+
+.container--wide {
+  max-width: 1536px;
+}

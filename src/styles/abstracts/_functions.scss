@@ -1,0 +1,21 @@
+@use "variables" as *;
+// ========================================
+// Functions
+// ========================================
+
+// Convert px to rem
+@function rem($px) {
+  @return #{$px / 16}rem;
+}
+
+// Convert px to em
+@function em($px, $context: 16) {
+  @return #{$px / $context}em;
+}
+
+// Clamp helper
+@function clamp-size($min, $max, $min-vw: 320, $max-vw: 1280) {
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  @return clamp(#{$min}px, #{$intercept}px + #{$slope * 100}vw, #{$max}px);
+}

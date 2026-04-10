@@ -1,0 +1,47 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Accordion (CSS-only via details/summary)
+// ========================================
+
+.accordion {
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+    &:last-child { border-bottom: none; }
+  }
+
+  &__details[open] .accordion__icon { transform: rotate(180deg); }
+
+  &__summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-5 $spacing-6;
+    cursor: pointer;
+    font-weight: $font-weight-medium;
+    background-color: $color-bg;
+    @include transition(background-color);
+    user-select: none;
+
+    &::-webkit-details-marker { display: none; }
+    &:hover { background-color: $color-bg-alt; }
+  }
+
+  &__icon {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    transition: transform $transition-base;
+  }
+
+  &__content {
+    padding: $spacing-5 $spacing-6;
+    color: $color-text-light;
+    line-height: $line-height-loose;
+    border-top: 1px solid $color-border;
+    background-color: $color-bg-alt;
+  }
+}

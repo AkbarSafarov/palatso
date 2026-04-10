@@ -1,0 +1,61 @@
+// =============================================================================
+// ACCESSIBILITY
+// =============================================================================
+
+// Skip link
+.skip-link {
+  @include visually-hidden;
+  @include btn-reset;
+
+  position: fixed;
+  top: $spacing-4;
+  left: $spacing-4;
+  z-index: $z-tooltip;
+  padding: $spacing-3 $spacing-6;
+  background-color: $color-primary;
+  color: $color-white;
+  font-weight: $font-weight-semibold;
+  border-radius: $border-radius;
+
+  &:focus {
+    clip: auto;
+    width: auto;
+    height: auto;
+    white-space: normal;
+    overflow: visible;
+  }
+}
+
+// Глобальные фокус-стили
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 3px;
+  border-radius: $border-radius-sm;
+}
+
+// Убираем outline при клике мышью, но оставляем при навигации с клавиатуры
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Уважаем prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Цветовая схема — тёмная тема (базовая)
+@media (prefers-color-scheme: dark) {
+  // Можно добавить переопределения переменных здесь
+}
+
+// Высокая контрастность
+@media (prefers-contrast: high) {
+  a { text-decoration: underline; }
+}

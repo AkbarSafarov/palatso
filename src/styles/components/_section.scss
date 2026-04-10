@@ -1,0 +1,34 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Section
+// ========================================
+
+.section {
+  padding-block: $spacing-20;
+
+  &--alt {
+    background-color: $color-bg-alt;
+  }
+
+  &--hero {
+    padding-block: 0;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-12;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 3vw, $font-size-4xl);
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-4;
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: $color-text-light;
+  }
+}

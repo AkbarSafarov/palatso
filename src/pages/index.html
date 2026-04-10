@@ -1,0 +1,256 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Палаццо" %}
+{% set description = "Палаццо" %}
+{% set canonical = "https://fasady-mebeli.ru/" %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="section section--hero" aria-labelledby="hero-heading">
+    <div class="swiper" id="hero-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero1.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero1-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero1.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Вертикальная фрезеровка <br> на шпоне</h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Дуб: морилка + патина</li>
+                                    <li>Файн лайн Wood Stock / Alpi</li>
+                                </ul>
+                                <p>Патина — в цвет шпона или контрастная <br>Толщина МДФ — подбирается под задачу <br>Шпонировка — с одной или двух сторон
+                                    <br>Геометрия — стабильна на любых размерах</p>
+                                <p>Делаем образцы. Шпон живой, и финал лучше видеть своими глазами.</p>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero2.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero2-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero2.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Фасады и панели в шпоне ореха американского</h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Разные толщины под ваш проект. Финальная отделка — лаки с разной степенью блеска.</li>
+                                    <li>Высота до 3 метров.</li>
+                                    <li>Также работаем с Fine Line, имитирующим текстуру ореха. Подберем решение для вашей задачи</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero3.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero3-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero3.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Фасад, который дышит? <br>Жалюзи</h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Рамка: шпон, файн лайн, эмаль, морилка</li>
+                                    <li>Рейки: лак, морилка, эмаль</li>
+                                </ul>
+                                <p>Комбинируются в любых вариантах отделки — под ваш проект.</p>
+                                <ul>
+                                    <li>Толщина 25 мм — основательная, статусная.</li>
+                                    <li>Рейки из массива — не гремят и не провисают.</li>
+                                    <li>Задняя часть закрыта штапиком — аккуратно со всех сторон.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero4.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero4-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero4.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Фасад в шпоне <br>с интегрированной ручкой </h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Дуб (морилка) | Файн лайн Wood Stock / Alpi (лак)</li>
+                                    <li>Толщина МДФ — 22 мм</li>
+                                    <li>Геометрия стабильна на любых размерах</li>
+                                    <li>Ручка: в шпоне или в эмали — под ваш проект.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero5.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero5-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero5.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Минимализм. <br>Без накладных ручек. <br>Удобно каждый день </h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Вертикальная фрезеровка с интегрированной ручкой на шпоне.</li>
+                                    <li>Дуб (морилка + патина) | Файн лайн Wood Stock / Alpi</li>
+                                    <li>Патина: в цвет или контраст</li>
+                                    <li>МДФ 22 мм</li>
+                                    <li>Геометрия стабильна на любых размерах</li>
+                                    <li>Ручка — часть фасада. Хват продуман, открывание легкое. Ничего лишнего.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero6.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero6-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero6.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Рамочные фасады в шпоне дуба под морилкой с патиной </h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Текстура дуба в деталях. Конструкция стабильна — не гнет, не трескается.</li>
+                                    <li>Используйте все возможности фасадных систем: витрины, пилястры, карнизы, буазери.</li>
+                                    <li>Трендовые выкрасы или подбор под ваш проект.</li>
+                                    <li>Для классических и смежных стилей — без дорогого и капризного массива.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero7.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero7-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero7.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Рамочные фасады В шпонЕ ясеня под акриловой эмалью </h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Акрил подчеркивает текстуру, конструкция стабильна — не гнет, не трескается.</li>
+                                    <li>Используйте все возможности фасадных систем: витрины, пилястры, карнизы, буазери.</li>
+                                    <li>Любой цвет по RAL и NCS, более 10 моделей в каталоге.</li>
+                                    <li>Для Прованса и смежных стилей — без дорогого массива.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero8.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero8-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero8.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Фасады и стеновые панели в шпоне Fine Line</h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Работаем по каталогам Wood Stock и Alpi. Разные толщины под ваш проект.</li>
+                                    <li>Лаки с различной степенью блеска. Уникальность природных текстур.</li>
+                                    <li>Высоты до 3 метров.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/images/hero9.jpg" />
+                    <source media="(max-width: 767px)" srcset="/assets/images/hero9-mob.jpg"/>
+                    <img
+                        src="/assets/images/hero9.jpg"
+                        alt=""
+                    />
+                </picture>
+                <div class="hero__body">
+                    <div class="container">
+                        <div class="hero__inner">
+                            <h1 class="hero__title">Шпонированные панели и фасады <br>в шпоне натурального дуба под морилкой </h1>
+                            <div class="hero__text">
+                                <ul>
+                                    <li>Только качественный шпон от проверенных поставщиков.</li>
+                                    <li>Разные толщины под ваш проект. Высота до 3 метров.</li>
+                                    <li>Трендовые выкрасы морилок или индивидуальный подбор цвета — делаем выкрасы.</li>
+                                </ul>
+                            </div>
+                            <a href="" class="btn_button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination-hero"></div>
+</section>
+
+
+{% endblock %}
