@@ -6,8 +6,8 @@
 .header__burger {
     display: none;
     cursor: pointer;
-    flex: 0 0 30px;
-    height: 30px;
+    flex: 0 0 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
     margin-left: auto;
@@ -16,9 +16,30 @@
     padding: 0;
     color: #fff;
     margin-left: auto;
+    transition:  all $transition-base;
+
+    svg {
+        transition: all $transition-base;
+        transform: rotate(0);
+        line {
+            transition: all $transition-base;
+            transform: rotate(0);
+        }
+    }
 
     @media all and (max-width: 1024px) {
         display: flex;
+    }
+
+    &[aria-expanded="true"] {
+        background: #fff;
+
+        svg {
+            transform: rotate(90deg);
+            line {
+                stroke: #c16565;
+            }
+        }
     }
 }
 
@@ -121,12 +142,38 @@
     }
 
     &__contacts {
-        display: flex;
-        gap: 46px;
         white-space: nowrap;
+        min-width: 338px;
 
-        @include respond-below('xl') {
-            gap: 24px;
+        &_col {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        &_col-bottom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .btn__link {
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 155%;
+            text-decoration: underline;
+            text-align: right;
+            color: #c16565;
+            cursor: pointer;
+            background: none;
+            border: none;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 
@@ -154,6 +201,13 @@
         font-size: 18px;
         line-height: 155%;
         color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        a {
+            text-decoration: none;
+        }
     }
 
     &__time {
@@ -174,7 +228,7 @@
         gap: 8px;
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 155%;
         color: #fff;
 
@@ -205,7 +259,7 @@
             width: 100%;
             margin-bottom: 15px;
 
-            &-right {
+            &-bottom {
                 display: none;
             }
 

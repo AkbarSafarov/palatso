@@ -26,6 +26,7 @@
     "vite-plugin-nunjucks": "^0.2.0"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.1.13",
     "swiper": "^12.1.3"
   }
 }

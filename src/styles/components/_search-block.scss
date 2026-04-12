@@ -1,0 +1,256 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Search Block
+// ========================================
+//
+// Структура:
+//   .search-block.form-wrap[.active]
+//     form > .form-del-wrap
+//       input.input--js
+//       button.search-block__search   (иконка лупы)
+//       button.search-block__del      (кнопка ×)
+//     button.search-block__cross      (закрыть блок)
+//     ul.search-block__result
+//       li > a > span                 (подсвеченная часть)
+
+// ── Контейнер ─────────────────────────────────────────────────────────────
+.search-block {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(0, -100%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    transition:
+        transform $transition-base,
+        opacity $transition-base,
+        visibility $transition-base;
+    padding: 26px 0;
+
+    .container-inner {
+        position: relative;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+
+    form {
+        margin: 0;
+        padding: 0 52px 0 0;
+    }
+}
+
+// ── Обёртка поля + кнопок ─────────────────────────────────────────────────
+.form-del-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: $color-bg;
+    border: 1.5px solid $color-border;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    @include transition(border-color, box-shadow);
+
+    .search-block:focus-within &,
+    .search-block.active & {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px color-mix(in srgb, $color-primary 15%, transparent);
+    }
+}
+
+// ── Поле ввода ────────────────────────────────────────────────────────────
+.input--js {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: $spacing-3 $spacing-5;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $color-text;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    &::placeholder { color: $color-text-light; }
+
+    // убираем нативный крестик в Chrome/IE
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration { display: none; }
+}
+
+// ── Общий стиль кнопок внутри формы ──────────────────────────────────────
+.search-block__search,
+.search-block__del {
+    @include button-reset;
+    @include flex-center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: $color-text-light;
+    @include transition(color, background-color);
+
+    &:hover { color: $color-primary; }
+    &:focus-visible { @include focus-ring; }
+}
+
+// ── Кнопка «Найти» (лупа) ─────────────────────────────────────────────────
+.search-block__search {
+    margin-right: $spacing-1;
+
+    .icon {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5px;
+    }
+
+    &:hover { background-color: transparent; color: $color-primary; }
+}
+
+// ── Кнопка удаления (×) ───────────────────────────────────────────────────
+.search-block__del {
+    position: relative;
+    opacity: 0;
+    pointer-events: none;
+    @include transition(opacity, color);
+
+    // крестик через псевдоэлементы
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 1px;
+    }
+    &::before { transform: translate(-50%, -50%) rotate(45deg); }
+    &::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+    // показываем когда в инпуте есть текст — управляется JS-классом
+    &.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+// ── Кнопка закрытия всего блока (×  справа от формы) ─────────────────────
+.search-block__cross {
+    @include button-reset;
+    @include flex-center;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 0.25rem;
+    color: $color-text-light;
+    border-color: #c16565;
+    box-shadow: 0 0 0 3px color-mix(in srgb, #c16565 15%, transparent);
+    @include transition(color, background-color);
+    background: #fff;
+
+    // крестик
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 1.5px;
+        background-color: currentColor;
+        border-radius: 1px;
+    }
+    &::before { transform: translate(-50%, -50%) rotate(45deg); }
+    &::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+    &:hover {
+        color: $color-text;
+        background-color: $color-bg-alt;
+    }
+
+    &:focus-visible { @include focus-ring; }
+}
+
+// ── Список подсказок ──────────────────────────────────────────────────────
+.search-block__result {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 50px;
+    list-style: none;
+    margin: 2px 0 0 0;
+    padding: $spacing-2 0;
+    background-color: $color-bg;
+    border: 1.5px solid $color-primary;
+    border-radius: 0.25rem;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+
+    // скрыт по умолчанию
+    display: none;
+
+    &.is-open { display: block; }
+
+    li { display: block; }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        padding: $spacing-2 $spacing-5;
+        font-size: $font-size-sm;
+        color: $color-text;
+        text-decoration: none;
+        @include transition(background-color, color);
+
+        // иконка лупы перед каждой подсказкой
+        &::before {
+            content: '';
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Ccircle cx='6.5' cy='6.5' r='4.5' stroke='%236b7280' stroke-width='1.4'/%3E%3Cline x1='10' y1='10' x2='14' y2='14' stroke='%236b7280' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &:hover,
+        &:focus-visible,
+        .is-active & {
+            background-color: color-mix(in srgb, $color-primary 8%, transparent);
+            color: $color-primary;
+            outline: none;
+
+            span { color: $color-primary; opacity: 0.6; }
+        }
+
+        // Выделенная часть подсказки
+        span {
+            font-weight: $font-weight-semibold;
+            color: $color-primary;
+            @include transition(color, opacity);
+        }
+    }
+}
+
+// ── Состояние .active на блоке (если нужно анимировать появление) ─────────
+.form-wrap {
+    &.active .search-block__result.is-open {
+        animation: result-drop 0.18s ease both;
+    }
+}
+
+@keyframes result-drop {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

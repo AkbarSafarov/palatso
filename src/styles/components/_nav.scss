@@ -88,63 +88,73 @@
 }
 
 .mobile-nav {
-  position: fixed;
-  inset: 0;
-  background-color: $color-bg;
-  padding: $spacing-6;
-  transform: translateX(-100%);
-  transition: transform $transition-base;
-  z-index: $z-overlay;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-
-  &.is-open { transform: translateX(0); }
-
-  &__close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-    margin-bottom: $spacing-4;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: $color-text;
-    border-radius: $radius-md;
-    transition: color $transition-fast, background-color $transition-fast;
-    flex-shrink: 0;
-
-    &:hover {
-      color: $color-primary;
-      background-color: $color-bg-alt;
-    }
-  }
-
-  &__list {
+    position: fixed;
+    bottom: 0;
+    top: 94px;
+    right: 0;
+    backdrop-filter: blur(9px);
+    box-shadow: 0 4px 33px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 23px 20px;
+    transform: translate(0, -100%);
+    transition: all $transition-base;
+    z-index: $z-overlay;
     display: flex;
     flex-direction: column;
-    gap: $spacing-2;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    opacity: 0;
+    visibility: hidden;
+    width: 310px;
 
-  &__link {
-    display: block;
-    padding: $spacing-3 $spacing-4;
-    font-size: $font-size-lg;
-    color: $color-text;
-    text-decoration: none;
-    border-radius: $radius-md;
-    @include transition(background-color, color);
-
-    &:hover, &[aria-current='page'] {
-      background-color: $color-bg-alt;
-      color: $color-primary;
+    &.is-open {
+        transform: translate(0, 0);
+        opacity: 1;
+        visibility: visible;
     }
-  }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0 0 auto;
+        padding: 0 6px 20px;
+
+        li {
+            border-bottom: 1px solid #d9d9d9;
+        }
+    }
+
+    .mobile__email {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 155%;
+        color: #000;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        gap: 8px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &__link {
+        display: block;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 155%;
+        color: #000;
+        transition: all $transition-base;
+        padding: 16px 0;
+        text-decoration: none;
+
+
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
 }
