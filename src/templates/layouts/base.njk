@@ -30,7 +30,11 @@
     </head>
   <body>
 
-    {% include "partials/header.njk" %}
+    {% if headerDark %}
+      {% include "partials/header-dark.njk" %}
+    {% else %}
+      {% include "partials/header.njk" %}
+    {% endif %}
 
     <main id="main-content">
       {% block content %}{% endblock %}

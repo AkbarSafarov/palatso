@@ -2,37 +2,3 @@
 // ========================================
 // Component — Feature Card
 // ========================================
-
-.feature-card {
-  padding: $spacing-8;
-  background-color: $color-bg;
-  border: 1px solid $color-border;
-  border-radius: $radius-xl;
-  @include transition(box-shadow, transform);
-
-  &:hover {
-    box-shadow: $shadow-lg;
-    transform: translateY(-2px);
-  }
-
-  &__icon {
-    width: 56px;
-    height: 56px;
-    border-radius: $radius-lg;
-    background-color: color-mix(in srgb, $color-primary 10%, transparent);
-    color: $color-primary;
-    @include flex-center;
-    margin-bottom: $spacing-5;
-  }
-
-  &__title {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-semibold;
-    margin-bottom: $spacing-3;
-  }
-
-  &__text {
-    color: $color-text-light;
-    line-height: $line-height-loose;
-  }
-}

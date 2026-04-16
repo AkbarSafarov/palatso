@@ -52,6 +52,14 @@
     padding: 27px 0;
     width: 100%;
 
+    .container {
+        @include container;
+
+        @include respond-below('lg') {
+            padding-inline: $container-padding-mobile;
+        }
+    }
+
     @include respond-below('xl') {
         .container {
             padding-inline: 15px;
@@ -271,5 +279,90 @@
         .header__center {
             display: none;
         }
+    }
+
+    &__dark {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        border-bottom: 1px solid #EDEDED;
+        background: #fff;
+
+        @media all and (min-width: 1025px) {
+            padding-top: 21px;
+            padding-bottom: 21px;
+        }
+
+        .header__burger {
+
+
+            svg line {
+                stroke: #000000;
+            }
+        }
+
+        .header__logo {
+            a {
+                color: #000;
+            }
+        }
+
+        .header__desc {
+            color: #7A7A7A;
+        }
+
+        .header__menu {
+
+            ul {
+                li {
+                    a {
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        .header__search {
+
+            &_btn {
+                color: #000;
+            }
+        }
+
+        .header__contacts {
+
+        }
+
+        .header__address {
+            color: #000;
+
+            svg use {
+                color: #CECECE;
+            }
+
+            @media all and (max-width: 1024px) {
+                svg use{
+                    color: #C16565;
+                }
+            }
+        }
+
+        .header__phone {
+            color: #000;
+        }
+
+        .header__time {
+            color: #000;
+        }
+
+        .header__email {
+            color: #000;
+
+            svg use {
+                color: #CECECE;
+            }
+        }
+
     }
 }

@@ -26,35 +26,6 @@ a[href^="tel:"] {
     color: inherit;
 }
 
-// Smooth focus transition
-*:focus-visible {
-  transition: outline-offset $transition-fast;
-}
-
-// Skip link
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: $spacing-4;
-  z-index: $z-toast;
-  padding: $spacing-3 $spacing-6;
-  background-color: $color-primary;
-  color: $color-text-inverse;
-  border-radius: 0 0 $radius-md $radius-md;
-  font-weight: $font-weight-medium;
-  text-decoration: none;
-
-  &:focus {
-    top: 0;
-  }
-}
-
-// Image placeholder — prevents CLS
-.card__image img,
-.hero__image img {
-  background-color: $color-bg-alt;
-}
-
 .btn_button {
     display: inline-block;
     vertical-align: top;
