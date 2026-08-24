@@ -5,26 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://fasady-mebeli.ru/" />
+        <link rel="canonical" href="https://fasady-mebeli.ru/news-item/" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Каталог проектов" />
+        <meta property="og:title" content="Название статьи" />
         <meta property="og:description" content="" />
-        <meta property="og:url" content="https://fasady-mebeli.ru/" />
+        <meta property="og:url" content="https://fasady-mebeli.ru/news-item/" />
         <meta property="og:image" content="https://stroynova.ru/og-image.jpg" />
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Каталог проектов" />
+        <meta name="twitter:title" content="Название статьи" />
         <meta name="twitter:description" content="" />
 
         <!-- Favicon -->
         <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 
-        <title>Каталог проектов</title>
+        <title>Название статьи</title>
 
         
       <script src="../assets/main-Nbtx7f3X.js"></script>
@@ -131,25 +131,27 @@
             <form>
                 <div class="form-del-wrap">
                     <input class="input--js" type="text" placeholder="Поиск по сайту">
-                    <button class="search-block__search">
-                        <svg class="icon icon-search ">
-                            <use xlink:href="/local/templates/main/assets/img/svg/sprite.svg#search"></use>
+                    <button class="search-block__search" type="button" aria-label="Найти">
+                        <svg width="16" height="16" aria-hidden="true" focusable="false">
+                            <use href="#iconSearch" />
                         </svg>
                     </button>
-                    <button class="search-block__del search-del--js" type="button"></button>
+                    <button class="search-block__del search-del--js" type="button" aria-label="Очистить"></button>
                 </div>
             </form>
-            <button class="search-block__cross search-toggle--js"></button>
+            <button class="search-block__cross search-toggle--js" type="button" aria-label="Закрыть поиск"></button>
             <ul class="search-block__result">
-                <li><a href="#">Подсказка <span>поиска</span></a></li>
-                <li><a href="#">Длинное слово подсказки <span>поиска</span></a></li>
-                <li><a href="#">Слово подсказки <span>поиска</span></a></li>
-                <li><a href="#">Подсказки <span>поиска</span></a></li>
+                <li><a href="#">Фасады МДФ</a></li>
+                <li><a href="#">Фасады крашеные</a></li>
+                <li><a href="#">Шпон натуральный</a></li>
+                <li><a href="#">Покраска фасадов</a></li>
+                <li><a href="#">Мебель на заказ</a></li>
+                <li><a href="#">Контакты</a></li>
             </ul>
         </div>
     </div>
 </div>
-<header class="header" role="banner">
+<header class="header header__dark" role="banner">
     <div class="container">
         <div class="header__inner ">
             <div class="header__logo">
@@ -188,13 +190,13 @@
                         </div>
                         <div class="header__phone">
                             <a href="">
-                                <img src="../assets/images/tg.svg" alt="">
+                                <img src="../assets/images/tg-dark.svg" alt="">
                             </a>
                             <a href="">
-                                <img src="../assets/images/vk.svg" alt="">
+                                <img src="../assets/images/vk-dark.svg" alt="">
                             </a>
                             <a href="">
-                                <img src="../assets/images/mx.svg" alt="">
+                                <img src="../assets/images/mx-dark.svg" alt="">
                             </a>
                             <a href="tel:+79101937999">+7 910 193 79 99</a>
                         </div>
@@ -270,15 +272,111 @@
 
     <main id="main-content">
       
-<section class="section" aria-labelledby="catalog-heading">
-  <div class="container">
-    <div class="section__header">
-      <h1 id="catalog-heading" class="section__title">Каталог проектов</h1>
-      <p class="section__subtitle"></p>
+
+<article class="article">
+    <div class="container">
+        
+<nav class="swiper breadcrumb-slider--js" aria-label="breadcrumb">
+    <ol class="breadcrumb swiper-wrapper" itemscope itemtype="http://schema.org/BreadcrumbList">
+        
+        <li class="breadcrumb-item swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            
+            <a href="/" itemprop="item">
+                <span itemprop="name">Главная страница</span>
+                <meta itemprop="position" content="1">
+            </a>
+            
+        </li>
+        
+        <li class="breadcrumb-item swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            
+            <div itemprop="item">
+                <span itemprop="name">Рамочные фасады</span>
+                <meta itemprop="position" content="2">
+            </div>
+            
+        </li>
+        
+    </ol>
+</nav>
+
+
+
+        <h1 class="article__title">Название статьи</h1>
+
+        <div class="article__meta">
+            <p class="article__author">
+                <span class="article__author-label">Автор:</span>
+                <a href="#">Красновская Екатерина</a>
+            </p>
+            <p class="article__date">
+                09.10.2026
+            </p>
+        </div>
+
+        <img class="article__image" src="../assets/images/news-item-hero.jpg" alt="" width="1216" height="400" loading="lazy">
+
+        <div class="article__toc">
+            <h2 class="article__toc-title">Содержание. О чём Вы узнаете в статье?</h2>
+            <ul class="article__toc-list">
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Как выбрать фасады для кухни: практичность, стиль и долговечность
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Какие материалы используют для изготовления мебельных фасадов
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Популярные виды фасадов для современной кухни
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Как подобрать цвет и фактуру фасадов под интерьер
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Уход за мебельными фасадами: основные правила
+                </li>
+            </ul>
+        </div>
+
+        <ul class="article__list">
+            <li>Всё это время мы стремимся к улучшению своего мастерства и к поддержке хорошей репутации. У нас работают только профессиональные работники, знающие своё дело. Для всех сотрудников «Палаццо» работа имеет большое значение, поэтому каждый стремится выполнять свой труд добросовестно и в установленные сроки. Благодаря стремлениям наших сотрудников стать лучше, совершенствуется и сама компания.</li>
+            <li>Наша компания занимается созданием мягкой и корпусной (встраиваемой в том числе) мебели, а так же дизайном интерьера любого помещения. Мы разрабатываем дизайн-проекты и предлагаем множество товаров для технического оборудования дома. Обеспечение обстановки комфорта и красоты в доме – наши основные задачи.</li>
+            <li>«Палаццо» - это современная фирма, поэтому мы следим за новыми тенденциями в мире мебели и дизайна, бизнеса и искусства в целом. Все новые технологии по мере возможности внедряются в нашу работу и помогают идти в ногу со временем. Мы стремимся соответствовать мировым стандартам экологичности продукции и охраны труда.</li>
+        </ul>
+
+        <h2 class="article__subtitle">Заголовок Н2</h2>
+        <div class="article__text">
+            <p>Всё это время мы стремимся к улучшению своего мастерства и к поддержке хорошей репутации. У нас работают только профессиональные работники, знающие своё дело. Для всех сотрудников «Палаццо» работа имеет большое значение, поэтому каждый стремится выполнять свой труд добросовестно и в установленные сроки. Благодаря стремлениям наших сотрудников стать лучше, совершенствуется и сама компания.</p>
+            <p>Наша компания занимается созданием мягкой и корпусной (встраиваемой в том числе) мебели, а так же дизайном интерьера любого помещения. Мы разрабатываем дизайн-проекты и предлагаем множество товаров для технического оборудования дома. Обеспечение обстановки комфорта и красоты в доме – наши основные задачи.</p>
+        </div>
+
+        <div class="article__gallery">
+            <img class="article__gallery-item" src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+            <div class="article__gallery-item"><span>image</span></div>
+            <div class="article__gallery-item"><span>image</span></div>
+        </div>
+
+        <div class="cta-banner">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? <br>Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Получить предложение</button>
+        </div>
+
+        <div class="cta-banner cta-banner--image">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? <br>Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Кнопка заявки</button>
+        </div>
+
+        <div class="cta-banner cta-banner--last">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Получить предложение</button>
+        </div>
     </div>
-    <!-- Контент каталога проектов -->
-  </div>
-</section>
+</article>
+
 
     </main>
 

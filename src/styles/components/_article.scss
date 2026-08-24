@@ -1,0 +1,283 @@
+@use "@/styles/abstracts/tokens" as *;
+
+// ========================================
+// Component — Article (страница статьи)
+// ========================================
+
+.article {
+    padding-block: $spacing-12 $spacing-20;
+
+    .container {
+        @include container;
+    }
+
+    &__title {
+        font-family: var(--font3);
+        font-weight: 400;
+        font-size: clamp(1.75rem, 1.2rem + 2vw, 2.375rem);
+        line-height: 1.35;
+        text-transform: uppercase;
+        color: var(--stroinova-black);
+        margin-bottom: 1rem;
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: $spacing-6;
+        padding-top: $spacing-4;
+        margin-bottom: 1rem;
+        border-top: 1px solid $color-border;
+        font-family: var(--font-family);
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-sm;
+        letter-spacing: 0.07em;
+    }
+
+    &__author {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        a {
+            color: var(--stroinova-black);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+
+            &:hover { text-decoration: none; }
+        }
+    }
+
+    &__author-label {
+        color: $color-text;
+        text-transform: uppercase;
+    }
+
+    &__date {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--stroinova-black);
+
+        svg {
+            color: var(--stroinova-black);
+            flex-shrink: 0;
+        }
+    }
+
+    &__image {
+        @include flex-center;
+        @include img-cover;
+
+        height: 400px;
+        margin-bottom: 22px;
+        background-color: $color-border;
+        color: $color-text;
+        font-size: $font-size-base;
+
+        @include respond-below('md') {
+            height: 220px;
+        }
+    }
+
+    &__toc {
+        padding: 18px 42px;
+        margin-bottom: $spacing-12;
+        background-color: #f9fafb;
+
+        @include respond-below('md') {
+            padding: $spacing-6;
+        }
+    }
+
+    &__toc-title {
+        font-family: var(--font3);
+        font-weight: 400;
+        line-height: 200%;
+        text-transform: uppercase;
+        color: #c16565;
+        font-size: clamp(1.25rem, 1rem + 1vw, 26px);
+        margin-bottom: .5rem;
+    }
+
+    &__toc-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: $spacing-3;
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 200%;
+            color: #7a7a7a;
+
+            a {
+                color: inherit;
+            }
+        }
+
+        svg {
+            flex-shrink: 0;
+            margin: 12px 0 0 4px;
+            color: $color-primary;
+        }
+    }
+
+    &__list {
+        list-style: disc;
+        padding-left: $spacing-6;
+        margin-bottom: 4rem;
+        font-family: var(--font-family);
+        font-size: $font-size-base;
+        line-height: 1.9;
+        color: var(--stroinova-black);
+
+        li {
+            margin-bottom: 0;
+        }
+    }
+
+    &__subtitle {
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
+        font-family: var(--font3);
+        font-weight: 400;
+        font-size: clamp(1.125rem, 1rem + 0.6vw, 1.625rem);
+        text-transform: uppercase;
+        color: $color-primary;
+        margin-bottom: 1.3rem;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            flex-shrink: 0;
+            background-color: #a4a4a4;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: $spacing-12;
+        font-family: var(--font-family);
+        font-size: $font-size-base;
+        line-height: 1.9;
+        color: var(--stroinova-black);
+    }
+
+    &__gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.3rem;
+        margin-bottom: 3.3rem;
+
+        @include respond-below('md') {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__gallery-item {
+        @include flex-center;
+        @include img-cover;
+
+        aspect-ratio: 390 / 350;
+        background-color: $color-border;
+        color: $color-text;
+        font-size: $font-size-base;
+    }
+}
+
+// ── Баннер «стать дилером» ─────────────────────────────────────────────────
+.cta-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $spacing-6;
+    padding: $spacing-6;
+    border: 1px solid $color-primary;
+    overflow: hidden;
+
+    & + & {
+        margin-top: $spacing-6;
+    }
+
+    @include respond-to('md') {
+        gap: $spacing-8;
+        padding: $spacing-10 78px $spacing-10 $spacing-10;
+
+        & + & {
+            margin-top: 1.9rem;
+        }
+    }
+
+    &__text {
+        position: relative;
+        z-index: 1;
+        max-width: 830px;
+        font-family: var(--font-family);
+        font-weight: $font-weight-medium;
+        font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #141414;
+    }
+
+    &__btn {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        white-space: nowrap;
+        cursor: pointer;
+        padding: 1.5rem calc(2rem - 12px);
+    }
+
+    &--image {
+        border-color: transparent;
+        background-image: url('/assets/images/news-cta-bg.jpg');
+        background-size: cover;
+        background-position: center;
+
+        @include respond-to('md') {
+            padding-right: 85px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgb(0 0 0 / 50%);
+        }
+
+        .cta-banner__text {
+            color: $color-text-inverse;
+        }
+    }
+
+    &--last {
+        margin-top: $spacing-6 !important;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        @include respond-to('md') {
+            padding-right: 66px;
+            justify-content: end;
+            align-items: start;
+        }
+
+        .cta-banner__text {
+            max-width: 540px;
+        }
+    }
+}

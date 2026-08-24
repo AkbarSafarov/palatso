@@ -1,0 +1,59 @@
+@use "@/styles/abstracts/tokens" as *;
+
+// ========================================
+// Component — Breadcrumbs
+// ========================================
+
+.breadcrumb-slider--js {
+    margin-bottom: $spacing-5;
+    overflow: hidden;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: $spacing-3;
+    font-family: var(--font-family);
+    font-weight: $font-weight-semibold;
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--stroinova-black);
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    div {
+        display: inline-block;
+        color: $color-text;
+    }
+
+    + .breadcrumb-item {
+        padding-left: 0;
+
+        &::before {
+            content: url('@/assets/images/bc-arrow.svg');
+            padding-right: $spacing-3;
+            line-height: 1;
+        }
+    }
+}
+
+// Специфичность выше, чем у `.swiper-slide { width: 100% }` из swiper/css
+.breadcrumb-slider--js .breadcrumb-item {
+    width: auto;
+}

@@ -1,0 +1,21 @@
+{% if breadcrumbs and breadcrumbs.length %}
+<nav class="swiper breadcrumb-slider--js" aria-label="breadcrumb">
+    <ol class="breadcrumb swiper-wrapper" itemscope itemtype="http://schema.org/BreadcrumbList">
+        {% for crumb in breadcrumbs %}
+        <li class="breadcrumb-item swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {% if crumb.url %}
+            <a href="{{ crumb.url }}" itemprop="item">
+                <span itemprop="name">{{ crumb.label }}</span>
+                <meta itemprop="position" content="{{ loop.index }}">
+            </a>
+            {% else %}
+            <div itemprop="item">
+                <span itemprop="name">{{ crumb.label }}</span>
+                <meta itemprop="position" content="{{ loop.index }}">
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}

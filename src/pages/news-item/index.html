@@ -1,0 +1,92 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Название статьи" %}
+{% set headerDark = true %}
+{% set description = "" %}
+{% set canonical = "https://fasady-mebeli.ru/news-item/" %}
+{% set breadcrumbs = [
+    { label: "Главная страница", url: "/" },
+    { label: "Рамочные фасады" }
+] %}
+
+{% block content %}
+
+<article class="article">
+    <div class="container">
+        {% include "partials/breadcrumbs.njk" %}
+
+        <h1 class="article__title">Название статьи</h1>
+
+        <div class="article__meta">
+            <p class="article__author">
+                <span class="article__author-label">Автор:</span>
+                <a href="#">Красновская Екатерина</a>
+            </p>
+            <p class="article__date">
+                09.10.2026
+            </p>
+        </div>
+
+        <img class="article__image" src="/assets/images/news-item-hero.jpg" alt="" width="1216" height="400" loading="lazy">
+
+        <div class="article__toc">
+            <h2 class="article__toc-title">Содержание. О чём Вы узнаете в статье?</h2>
+            <ul class="article__toc-list">
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Как выбрать фасады для кухни: практичность, стиль и долговечность
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Какие материалы используют для изготовления мебельных фасадов
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Популярные виды фасадов для современной кухни
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Как подобрать цвет и фактуру фасадов под интерьер
+                </li>
+                <li>
+                    <svg width="19" height="16" aria-hidden="true" focusable="false"><use href="#iconCheck" /></svg>
+                    Уход за мебельными фасадами: основные правила
+                </li>
+            </ul>
+        </div>
+
+        <ul class="article__list">
+            <li>Всё это время мы стремимся к улучшению своего мастерства и к поддержке хорошей репутации. У нас работают только профессиональные работники, знающие своё дело. Для всех сотрудников «Палаццо» работа имеет большое значение, поэтому каждый стремится выполнять свой труд добросовестно и в установленные сроки. Благодаря стремлениям наших сотрудников стать лучше, совершенствуется и сама компания.</li>
+            <li>Наша компания занимается созданием мягкой и корпусной (встраиваемой в том числе) мебели, а так же дизайном интерьера любого помещения. Мы разрабатываем дизайн-проекты и предлагаем множество товаров для технического оборудования дома. Обеспечение обстановки комфорта и красоты в доме – наши основные задачи.</li>
+            <li>«Палаццо» - это современная фирма, поэтому мы следим за новыми тенденциями в мире мебели и дизайна, бизнеса и искусства в целом. Все новые технологии по мере возможности внедряются в нашу работу и помогают идти в ногу со временем. Мы стремимся соответствовать мировым стандартам экологичности продукции и охраны труда.</li>
+        </ul>
+
+        <h2 class="article__subtitle">Заголовок Н2</h2>
+        <div class="article__text">
+            <p>Всё это время мы стремимся к улучшению своего мастерства и к поддержке хорошей репутации. У нас работают только профессиональные работники, знающие своё дело. Для всех сотрудников «Палаццо» работа имеет большое значение, поэтому каждый стремится выполнять свой труд добросовестно и в установленные сроки. Благодаря стремлениям наших сотрудников стать лучше, совершенствуется и сама компания.</p>
+            <p>Наша компания занимается созданием мягкой и корпусной (встраиваемой в том числе) мебели, а так же дизайном интерьера любого помещения. Мы разрабатываем дизайн-проекты и предлагаем множество товаров для технического оборудования дома. Обеспечение обстановки комфорта и красоты в доме – наши основные задачи.</p>
+        </div>
+
+        <div class="article__gallery">
+            <img class="article__gallery-item" src="/assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+            <div class="article__gallery-item"><span>image</span></div>
+            <div class="article__gallery-item"><span>image</span></div>
+        </div>
+
+        <div class="cta-banner">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? <br>Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Получить предложение</button>
+        </div>
+
+        <div class="cta-banner cta-banner--image">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? <br>Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Кнопка заявки</button>
+        </div>
+
+        <div class="cta-banner cta-banner--last">
+            <p class="cta-banner__text">Хотите стать дилерами в своем регионе? Заполните форму и получите предложение на почту</p>
+            <button class="btn_button cta-banner__btn" type="button" data-src="#modal-contacts" data-fancybox>Получить предложение</button>
+        </div>
+    </div>
+</article>
+
+{% endblock %}

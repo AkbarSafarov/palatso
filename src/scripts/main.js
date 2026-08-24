@@ -9,6 +9,7 @@ import { initNavigation, initOverflowNav } from './modules/navigation.js';
 import { initLazyImages } from './modules/lazyImages.js';
 import { initHeroSlider } from './modules/heroSlider.js';
 import { initSearchBlock } from '@/scripts/modules/searchBlock.js';
+import { initBreadcrumbSlider } from './modules/breadcrumbSlider.js';
 
 const init = () => {
     initNavigation();
@@ -16,6 +17,7 @@ const init = () => {
     initLazyImages();
     initHeroSlider();
     initSearchBlock();
+    initBreadcrumbSlider();
 
     Fancybox.bind('[data-fancybox]', {
         mainClass: 'fancybox--modal',

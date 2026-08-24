@@ -96,6 +96,7 @@ export default defineConfig({
         index: path.resolve(pagesDir, 'index.html'),
         catalog: path.resolve(pagesDir, 'catalog/index.html'),
         about: path.resolve(pagesDir, 'about/index.html'),
+        'news-item': path.resolve(pagesDir, 'news-item/index.html'),
         '404': path.resolve(pagesDir, '404/index.html'),
       },
       output: {
