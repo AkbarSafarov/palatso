@@ -87,7 +87,8 @@
         background-color: #f9fafb;
 
         @include respond-below('md') {
-            padding: $spacing-6;
+            padding: $spacing-4;
+            margin-bottom: $spacing-8;
         }
     }
 
@@ -99,6 +100,11 @@
         color: #c16565;
         font-size: clamp(1.25rem, 1rem + 1vw, 26px);
         margin-bottom: .5rem;
+
+        @include respond-below('md') {
+            line-height: 1.35;
+            margin-bottom: $spacing-3;
+        }
     }
 
     &__toc-list {
@@ -106,6 +112,10 @@
         display: flex;
         flex-direction: column;
         gap: 0;
+
+        @include respond-below('md') {
+            gap: $spacing-3;
+        }
 
         li {
             display: flex;
@@ -117,6 +127,12 @@
             line-height: 200%;
             color: #7a7a7a;
 
+            @include respond-below('md') {
+                gap: $spacing-2;
+                font-size: $font-size-sm;
+                line-height: 1.6;
+            }
+
             a {
                 color: inherit;
             }
@@ -126,6 +142,10 @@
             flex-shrink: 0;
             margin: 12px 0 0 4px;
             color: $color-primary;
+
+            @include respond-below('md') {
+                margin: 2px 0 0 0;
+            }
         }
     }
 
@@ -140,6 +160,17 @@
 
         li {
             margin-bottom: 0;
+        }
+
+        @include respond-below('md') {
+            padding-left: $spacing-5;
+            margin-bottom: $spacing-8;
+            font-size: $font-size-sm;
+            line-height: 1.7;
+
+            li + li {
+                margin-top: $spacing-4;
+            }
         }
     }
 
@@ -176,24 +207,48 @@
     }
 
     &__gallery {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.3rem;
         margin-bottom: 3.3rem;
-
-        @include respond-below('md') {
-            grid-template-columns: 1fr;
-        }
     }
 
     &__gallery-item {
         @include flex-center;
-        @include img-cover;
 
         aspect-ratio: 390 / 350;
+        overflow: hidden;
         background-color: $color-border;
         color: $color-text;
         font-size: $font-size-base;
+
+        img {
+            @include img-cover;
+        }
+    }
+
+    &__gallery-pagination {
+        display: none;
+
+        @include respond-below('md') {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: $spacing-6;
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            margin: 0;
+            border-radius: 60px;
+            opacity: 1;
+            transition: all .3s;
+            background: $color-border;
+
+            &.swiper-pagination-bullet-active {
+                background: $color-primary;
+                width: 22px;
+            }
+        }
     }
 }
 
@@ -241,6 +296,7 @@
         white-space: nowrap;
         cursor: pointer;
         padding: 1.5rem calc(2rem - 12px);
+        min-width: 228px;
     }
 
     &--image {
@@ -248,10 +304,6 @@
         background-image: url('/assets/images/news-cta-bg.jpg');
         background-size: cover;
         background-position: center;
-
-        @include respond-to('md') {
-            padding-right: 85px;
-        }
 
         &::before {
             content: '';
@@ -271,7 +323,6 @@
         align-items: flex-start;
 
         @include respond-to('md') {
-            padding-right: 66px;
             justify-content: end;
             align-items: start;
         }

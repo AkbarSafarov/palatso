@@ -27,8 +27,8 @@
         <title>Название статьи</title>
 
         
-      <script src="../assets/main-Nbtx7f3X.js"></script>
-      <link rel="stylesheet" href="../assets/main-BXAlv69-.css">
+      <script src="../assets/main-BhiGREOl.js"></script>
+      <link rel="stylesheet" href="../assets/main-CeriAxU9.css">
     </head>
   <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -314,7 +314,11 @@
             </p>
         </div>
 
-        <img class="article__image" src="../assets/images/news-item-hero.jpg" alt="" width="1216" height="400" loading="lazy">
+        <picture>
+            <source media="(min-width: 768px)" srcset="../assets/images/news-item-hero.jpg" />
+            <source media="(max-width: 767px)" srcset="../assets/images/news-item-hero.jpg" />
+            <img class="article__image" src="../assets/images/news-item-hero.jpg" alt="" width="1216" height="400" loading="lazy">
+        </picture>
 
         <div class="article__toc">
             <h2 class="article__toc-title">Содержание. О чём Вы узнаете в статье?</h2>
@@ -354,10 +358,25 @@
             <p>Наша компания занимается созданием мягкой и корпусной (встраиваемой в том числе) мебели, а так же дизайном интерьера любого помещения. Мы разрабатываем дизайн-проекты и предлагаем множество товаров для технического оборудования дома. Обеспечение обстановки комфорта и красоты в доме – наши основные задачи.</p>
         </div>
 
-        <div class="article__gallery">
-            <img class="article__gallery-item" src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
-            <div class="article__gallery-item"><span>image</span></div>
-            <div class="article__gallery-item"><span>image</span></div>
+        <div class="article__gallery swiper gallery-slider--js">
+            <div class="swiper-wrapper">
+                <div class="article__gallery-item swiper-slide">
+                    <img src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+                </div>
+                <div class="article__gallery-item swiper-slide">
+                    <img src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+                </div>
+                <div class="article__gallery-item swiper-slide">
+                    <img src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+                </div>
+                <div class="article__gallery-item swiper-slide">
+                    <img src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+                </div>
+                <div class="article__gallery-item swiper-slide">
+                    <img src="../assets/images/news-item-gallery-1.jpg" alt="" width="390" height="350" loading="lazy">
+                </div>
+            </div>
+            <div class="swiper-pagination article__gallery-pagination"></div>
         </div>
 
         <div class="cta-banner">

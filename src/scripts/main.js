@@ -10,6 +10,7 @@ import { initLazyImages } from './modules/lazyImages.js';
 import { initHeroSlider } from './modules/heroSlider.js';
 import { initSearchBlock } from '@/scripts/modules/searchBlock.js';
 import { initBreadcrumbSlider } from './modules/breadcrumbSlider.js';
+import { initGallerySlider } from './modules/gallerySlider.js';
 
 const init = () => {
     initNavigation();
@@ -18,6 +19,7 @@ const init = () => {
     initHeroSlider();
     initSearchBlock();
     initBreadcrumbSlider();
+    initGallerySlider();
 
     Fancybox.bind('[data-fancybox]', {
         mainClass: 'fancybox--modal',
