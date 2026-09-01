@@ -225,7 +225,7 @@
     }
 
     &__gallery {
-        margin-bottom: 3.3rem;
+        margin-bottom: 2.3rem;
     }
 
     &__gallery-item {
@@ -243,15 +243,11 @@
     }
 
     &__gallery-pagination {
-        display: none;
-
-        @include respond-below('md') {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: $spacing-6;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: $spacing-6;
 
         .swiper-pagination-bullet {
             width: 8px;
@@ -267,6 +263,10 @@
                 width: 22px;
             }
         }
+    }
+
+    &__image-banner {
+        margin-bottom: 2.3rem;
     }
 }
 
