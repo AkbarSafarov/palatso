@@ -1,5 +1,75 @@
 @use "@/styles/abstracts/tokens" as *;
+
 // ========================================
 // Component — Card
 // ========================================
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $color-border;
+    font-family: $font-family-base;
+
+  &__image {
+    display: block;
+    aspect-ratio: 387 / 384;
+    background-color: $color-border;
+    overflow: hidden;
+
+    img {
+      @include img-cover;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: $spacing-6;
+  }
+
+  &__title {
+    display: inline-block;
+    max-width: 230px;
+    margin: 0 0 $spacing-4;
+    color: #141414;
+    font-size: 1.125rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__price-row {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-1;
+    margin-top: auto;
+  }
+
+  &__price-label {
+    color: $color-text;
+    font-size: 0.75rem;
+    font-weight: $font-weight-semibold;
+    white-space: nowrap;
+  }
+
+  &__price {
+    color: #141414;
+    font-size: 1.5rem;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: $spacing-4 10px;
+    font-size: 0.875rem;
+  }
+}
 

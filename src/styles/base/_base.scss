@@ -8,6 +8,10 @@
   color: $color-text-inverse;
 }
 
+.visually-hidden {
+  @include visually-hidden;
+}
+
 // Placeholder image sizing fix (prevents CLS)
 img {
   display: block;

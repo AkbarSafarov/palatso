@@ -1,5 +1,15 @@
-<div class="product-item">
-    <div class="image">
-        <img src="" alt="">
+{% macro render(product) %}
+<article class="product-item">
+    <a class="product-item__image" href="{{ product.url }}">
+        <img src="{{ product.image }}" alt="{{ product.title }}" loading="lazy">
+    </a>
+    <div class="product-item__body">
+        <a class="product-item__title" href="{{ product.url }}">{{ product.title }}</a>
+        <div class="product-item__price-row">
+            <span class="product-item__price-label">РРЦ за 1м2</span>
+            <span class="product-item__price">от {{ product.price }} р</span>
+        </div>
+        <a class="product-item__btn btn_button" href="{{ product.url }}">Подробнее</a>
     </div>
-</div>
+</article>
+{% endmacro %}

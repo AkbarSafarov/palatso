@@ -6,6 +6,11 @@
 .section {
   padding-block: $spacing-20;
 
+    @media all and (max-width: 767px) {
+        padding-bottom: 40px;
+        padding-top: 0;
+    }
+
   &--alt {
     background-color: $color-bg-alt;
   }

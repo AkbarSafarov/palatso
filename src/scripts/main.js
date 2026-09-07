@@ -11,6 +11,7 @@ import { initHeroSlider } from './modules/heroSlider.js';
 import { initSearchBlock } from '@/scripts/modules/searchBlock.js';
 import { initBreadcrumbSlider } from './modules/breadcrumbSlider.js';
 import { initGallerySlider } from './modules/gallerySlider.js';
+import { initCatalogSliders } from './modules/catalogSliders.js';
 
 const init = () => {
     initNavigation();
@@ -20,6 +21,7 @@ const init = () => {
     initSearchBlock();
     initBreadcrumbSlider();
     initGallerySlider();
+    initCatalogSliders();
 
     Fancybox.bind('[data-fancybox]', {
         mainClass: 'fancybox--modal',

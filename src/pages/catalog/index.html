@@ -1,16 +1,137 @@
 {% extends "layouts/base.njk" %}
-{% set title = "Каталог проектов" %}
-{% set description = "" %}
-{% set canonical = "https://fasady-mebeli.ru/" %}
+{% from "blocks/product-item.njk" import render as productItem %}
+{% set title = "Каталог фасадов" %}
+{% set headerDark = true %}
+{% set description = "Каталог фасадов Палаццо: типы фасадов, фото готовых проектов и популярные модели." %}
+{% set canonical = "https://fasady-mebeli.ru/catalog/" %}
+{% set breadcrumbs = [
+  { label: "Главная страница", url: "/" },
+  { label: "Каталог фасадов" }
+] %}
+
+{% set facadeTypes = [
+  { title: "Рамочные фасады", url: "/ramochnye-fasady/", image: "/assets/images/catalog/types/ramochnye-fasady.png" },
+  { title: "Панельные фасады", url: "/panelnye-fasady/", image: "/assets/images/catalog/types/shponirovannyj-mdf.png" },
+  { title: "Раздвижные двери", url: "/razdvizhnye-dveri/", image: "/assets/images/catalog/types/razdvizhnye-dveri.png" },
+  { title: "Жалюзийные фасады для мебели", url: "/zhalyuziynye-fasady-dlya-mebeli/", image: "/assets/images/catalog/types/zhalyuziynye-fasady.png" }
+] %}
+
+{# TODO: временные изображения — заменить на реальные фото готовых фасадов #}
+{% set photoGallery = [
+  { title: "Шпон какой то", model: "модель фасада какая то", image: "/assets/images/catalog/types/fasady-v-shpone-duba.png" },
+  { title: "Шпон какой то", model: "модель фасада какая то", image: "/assets/images/catalog/types/fasady-dlya-vanny.png" },
+  { title: "Шпон какой то", model: "модель фасада какая то", image: "/assets/images/catalog/types/fasady-dlya-kukhni.png" },
+  { title: "Шпон какой то", model: "модель фасада какая то", image: "/assets/images/catalog/types/fasady-radialnyy-shpon.png" },
+  { title: "Шпон какой то", model: "модель фасада какая то", image: "/assets/images/catalog/types/fasady-shpon-orekha.png" }
+] %}
+
+{% set popularModels = [
+  { title: "Бостон NCS S 6005-R80B", url: "/ramochnye-fasady/boston-ncs-s-6005-r80b/", image: "/assets/images/catalog/products/boston-ncs-s-6005-r80b.jpg", price: "13 000" },
+  { title: "Тироль WCP 227", url: "/ramochnye-fasady/tirol-wcp-227/", image: "/assets/images/catalog/products/tirol-wcp-227.jpg", price: "16 000" },
+  { title: "Виктория NCS S 2002-Y", url: "/ramochnye-fasady/viktoriya-ncs-s-2002-y/", image: "/assets/images/catalog/products/viktoriya-ncs-s-2002-y.jpg", price: "14 200" },
+  { title: "Экотон Дуб Коньячный", url: "/Shponirovannyj-MDF/ekoton-dub-konyachnyy/", image: "/assets/images/catalog/products/ekoton-dub-konyachnyy.png", price: "12 700" },
+  { title: "Экотон Дуб Шоколадный", url: "/Shponirovannyj-MDF/ekoton-dub-shokoladnyy/", image: "/assets/images/catalog/products/ekoton-dub-shokoladnyy.png", price: "12 700" },
+  { title: "Экотон Дуб касела серый", url: "/Shponirovannyj-MDF/ekoton-dub-kasela-seryy/", image: "/assets/images/catalog/products/ekoton-dub-kasela-seryy.png", price: "12 700" },
+  { title: "Экотон Дуб галифакс натуральный", url: "/Shponirovannyj-MDF/ekoton-dub-galifaks-naturalnyy/", image: "/assets/images/catalog/products/ekoton-dub-galifaks-naturalnyy.png", price: "12 700" },
+  { title: "Экотон Дуб гикори натуральный", url: "/Shponirovannyj-MDF/ekoton-dub-gikori-naturalnyy/", image: "/assets/images/catalog/products/ekoton-dub-gikori-naturalnyy.png", price: "12 700" },
+  { title: "Экотон Дуб дикий натуральный", url: "/Shponirovannyj-MDF/ekoton-dub-dikiy-naturalnyy/", image: "/assets/images/catalog/products/ekoton-dub-dikiy-naturalnyy.png", price: "12 700" },
+  { title: "Раздвижная дверь модель 9", url: "/razdvizhnye-dveri/model-9/", image: "/assets/images/catalog/products/razdvizhnaya-dver-model-9.jpg", price: "13 600" },
+  { title: "Сканди контраст", url: "/zhalyuziynye-fasady-dlya-mebeli/skandi-kontrast/", image: "/assets/images/catalog/products/skandi-kontrast.png", price: "21 200" },
+  { title: "Сканди экотон", url: "/zhalyuziynye-fasady-dlya-mebeli/skandi-ekoton/", image: "/assets/images/catalog/products/skandi-ekoton.png", price: "21 200" },
+  { title: "Сканди натур", url: "/zhalyuziynye-fasady-dlya-mebeli/skandi-natur/", image: "/assets/images/catalog/products/skandi-natur.png", price: "21 200" },
+  { title: "Сканди моноколор", url: "/zhalyuziynye-fasady-dlya-mebeli/skandi-monokolor/", image: "/assets/images/catalog/products/skandi-monokolor.png", price: "21 200" }
+] %}
 
 {% block content %}
-<section class="section" aria-labelledby="catalog-heading">
-  <div class="container">
-    <div class="section__header">
-      <h1 id="catalog-heading" class="section__title">Каталог проектов</h1>
-      <p class="section__subtitle"></p>
+<div class="catalog-section-wrap">
+    <h1 class="visually-hidden">Каталог фасадов</h1>
+
+    <div class="container">
+      {% include "partials/breadcrumbs.njk" %}
     </div>
-    <!-- Контент каталога проектов -->
-  </div>
-</section>
+
+    <!-- Типы фасадов -->
+    <section class="catalog-section" aria-labelledby="facade-types-heading">
+      <div class="container">
+        <h2 id="facade-types-heading" class="catalog-heading">Типы фасадов</h2>
+        <ul class="facade-types">
+          {% for item in facadeTypes %}
+          <li class="facade-types__item">
+            <a class="facade-types__link" href="{{ item.url }}">
+              <h3 class="facade-types__title">
+                <span>{{ item.title }}</span>
+                <span class="facade-types__arrow">
+                  <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#iconArrowUp" /></svg>
+                </span>
+              </h3>
+              <span class="facade-types__image-wrap">
+                <img class="facade-types__image" src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+              </span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Фото фасадов -->
+    <section class="catalog-section" aria-labelledby="photo-gallery-heading">
+      <div class="container">
+        <h2 id="photo-gallery-heading" class="catalog-heading">Фото фасадов</h2>
+        <div class="swiper photo-gallery-slider--js">
+          <div class="swiper-wrapper">
+            {% for item in photoGallery %}
+            <div class="swiper-slide">
+              <div class="photo-gallery__card">
+                <a class="photo-gallery__image" href="{{ item.image }}" data-fancybox="photo-gallery" data-caption="{{ item.title }}">
+                  <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+                </a>
+                <h3 class="photo-gallery__title">{{ item.title }}</h3>
+                <p class="photo-gallery__model"><span>Модель:</span> {{ item.model }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="catalog-slider-nav" data-nav="photo-gallery">
+          <div class="catalog-slider-nav__pagination"></div>
+          <div class="catalog-slider-nav__arrows">
+            <button type="button" class="catalog-slider-nav__prev" aria-label="Предыдущие фото">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#iconChevronLeft" /></svg>
+            </button>
+            <button type="button" class="catalog-slider-nav__next" aria-label="Следующие фото">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#iconChevronRight" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярные модели -->
+    <section class="catalog-section" aria-labelledby="popular-models-heading">
+      <div class="container">
+        <h2 id="popular-models-heading" class="catalog-heading">Популярные модели</h2>
+        <div class="swiper popular-models-slider--js">
+          <div class="swiper-wrapper">
+            {% for product in popularModels %}
+            <div class="swiper-slide">
+              {{ productItem(product) }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="catalog-slider-nav" data-nav="popular-models">
+          <div class="catalog-slider-nav__pagination"></div>
+          <div class="catalog-slider-nav__arrows">
+            <button type="button" class="catalog-slider-nav__prev" aria-label="Предыдущие модели">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#iconChevronLeft" /></svg>
+            </button>
+            <button type="button" class="catalog-slider-nav__next" aria-label="Следующие модели">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#iconChevronRight" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
 {% endblock %}

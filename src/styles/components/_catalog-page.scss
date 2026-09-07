@@ -1,0 +1,250 @@
+@use "@/styles/abstracts/tokens" as *;
+
+// ========================================
+// Component — Catalog page sections
+// (типы фасадов / фото фасадов / популярные модели)
+// ========================================
+
+.catalog-section-wrap {
+    padding: 3rem 0;
+}
+
+.catalog-section {
+    padding-bottom: 86px;
+
+    @media all and (max-width: 980px) {
+        padding-bottom: 40px;
+    }
+}
+
+.catalog-heading {
+  margin: 0 0 $spacing-10;
+  color: #141414;
+  font-family: $font-family-base;
+  font-size: clamp(1.5rem, 3vw, 2.375rem);
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  text-transform: uppercase;
+
+    @media all and (max-width: 767px) {
+        margin-bottom: 25px;
+    }
+}
+
+.catalog-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-4;
+  margin-top: 1.75rem;
+
+  &__pagination {
+    display: flex;
+    gap: $spacing-2;
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      margin: 0;
+      background-color: #949494;
+      opacity: 0.2;
+      border-radius: $radius-full;
+      transition: all 0.3s;
+
+      &.swiper-pagination-bullet-active {
+        width: 8px;
+        background-color: $color-primary;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+  }
+
+  &__prev,
+  &__next {
+    @include button-reset;
+    @include flex-center;
+      border: 1px solid #7a7a7a;
+      border-radius: 10px;
+    width: 24px;
+    height: 24px;
+    color: #141414;
+
+      svg {
+          fill: none;
+          width: 15px;
+          height: 15px;
+      }
+
+    &.swiper-button-disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+}
+
+// ---------------------------------------
+// Типы фасадов
+// ---------------------------------------
+
+.facade-types {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px 0;
+  padding: 0;
+  list-style: none;
+
+  @media (width <= 575px) {
+    justify-content: center;
+  }
+
+  &__item {
+    position: relative;
+    width: 50%;
+    padding: 0 16px;
+    margin-bottom: 32px;
+
+    @include respond-to('md') {
+      width: 25%;
+    }
+
+    @media (width <= 575px) {
+
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  &__image-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 100 / 163;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__title {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    left: 40px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-2;
+    color: $color-text-inverse;
+    font-size: 1.5rem;
+    font-weight: $font-weight-medium;
+    line-height: 1.2;
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+
+    span {
+      max-width: 190px;
+    }
+
+    @media (width <= 575px) {
+      top: 25px;
+      right: 20px;
+      left: 20px;
+      font-size: 1rem;
+    }
+  }
+
+  &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    flex-shrink: 0;
+    width: 23px;
+    height: 23px;
+    border-radius: $radius-full;
+    background-color: $color-primary;
+    color: $color-text-inverse;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transform: rotate(90deg);
+    }
+
+    @media (width <= 575px) {
+      display: none;
+    }
+  }
+}
+
+// ---------------------------------------
+// Фото фасадов
+// ---------------------------------------
+
+.photo-gallery__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+    text-decoration: none;
+}
+
+.photo-gallery__image {
+  position: relative;
+  display: block;
+  aspect-ratio: 384 / 384;
+  overflow: hidden;
+  border-radius: $radius-sm;
+  background-color: $color-border;
+  cursor: zoom-in;
+    border: none;
+    outline: none;
+
+  img {
+    @include img-cover;
+      border: none;
+      outline: none;
+    display: block;
+    transition: transform $transition-base;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.photo-gallery__title {
+  margin: 0;
+  color: #141414;
+  font-size: 1.125rem;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+.photo-gallery__model {
+  margin: 0;
+  color: #000;
+  font-size: 0.875rem;
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+
+  span {
+    color: $color-text;
+  }
+}
+
+.container .swiper-slide {
+    height: auto;
+}
