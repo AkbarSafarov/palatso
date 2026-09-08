@@ -6,8 +6,10 @@
     <div class="product-item__body">
         <a class="product-item__title" href="{{ product.url }}">{{ product.title }}</a>
         <div class="product-item__price-row">
-            <span class="product-item__price-label">РРЦ за 1м2</span>
-            <span class="product-item__price">от {{ product.price }} р</span>
+            <div class="product-item__text-left">
+                <span class="product-item__price-label">РРЦ за 1м2</span>
+                <span class="product-item__price">от {{ product.price }} р</span>
+            </div>
         </div>
         <a class="product-item__btn btn_button" href="{{ product.url }}">Подробнее</a>
     </div>

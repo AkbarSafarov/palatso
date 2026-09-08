@@ -78,6 +78,7 @@
 
         @include respond-below('md') {
             height: 220px;
+            aspect-ratio: 1;
         }
     }
 
