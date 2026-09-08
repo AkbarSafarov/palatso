@@ -248,3 +248,10 @@
 .container .swiper-slide {
     height: auto;
 }
+
+.swiper.photo-gallery-slider--js,
+.swiper.popular-models-slider--js{
+    @media all and (max-width: 639px) {
+        margin-right: -1.5rem;
+    }
+}
