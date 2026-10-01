@@ -1,0 +1,191 @@
+@use "@/styles/abstracts/tokens" as *;
+
+$main-menu-dropdown-offset: 22px;
+$main-menu-dropdown-width: 234px;
+
+
+@mixin main-menu-item-open {
+    > .main-menu__link,
+    > .main-menu__toggle {
+        color: var(--stroinova-accent-light);
+    }
+
+    > .main-menu__dropdown {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+@mixin main-menu-subitem-open {
+    > .main-menu__sublink,
+    > .main-menu__subtoggle {
+        font-weight: 700;
+        color: var(--stroinova-accent);
+    }
+
+    > .main-menu__subtoggle::before {
+        content: "−";
+    }
+
+    > .main-menu__dropdown {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.main-menu {
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &__link,
+    &__toggle {
+        display: block;
+        padding: 5px 0;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--stroinova-white);
+        text-decoration: none;
+        transition: color $transition-base;
+    }
+
+    &__link:hover {
+        color: var(--stroinova-accent-light);
+    }
+
+    &__toggle {
+        margin-left: 4px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: calc(100% + #{$main-menu-dropdown-offset});
+        left: -53px;
+        z-index: 20;
+        width: $main-menu-dropdown-width;
+        margin: 0;
+        padding: 2px 0;
+        list-style: none;
+        background: var(--stroinova-dropdown-bg);
+        box-shadow: var(--stroinova-dropdown-shadow);
+        visibility: hidden;
+        opacity: 0;
+        transition:
+            opacity $transition-base,
+            visibility $transition-base;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            height: $main-menu-dropdown-offset;
+        }
+
+        &--nested {
+            top: 0;
+            left: calc(100% + 1px);
+            padding-bottom: 3px;
+
+            &::before {
+                inset: 0 100% 0 auto;
+                width: 1px;
+                height: auto;
+            }
+        }
+    }
+
+    &__subitem {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &:not(:last-child)::after {
+            content: "";
+            flex: 0 0 auto;
+            width: calc(100% - 27px);
+            height: 1px;
+            margin-left: 13px;
+            background: var(--stroinova-gray-4);
+        }
+    }
+
+    &__sublink,
+    &__subtoggle {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--stroinova-black);
+        text-decoration: none;
+        transition: color $transition-base;
+    }
+
+    &__sublink {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 10.65px 17px 10.65px 21px;
+
+        &:hover {
+            color: var(--stroinova-accent);
+        }
+    }
+
+    &__subitem--has-children > &__sublink {
+        padding-right: 0;
+    }
+
+    &__subtoggle {
+        flex: 0 0 auto;
+        padding: 0 18px 0 8px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            content: "+";
+        }
+    }
+
+    &--dark &__link,
+    &--dark &__toggle {
+        color: var(--stroinova-black);
+    }
+
+
+    &__item--open {
+        @include main-menu-item-open;
+    }
+
+    &__subitem--has-children.main-menu__subitem--open {
+        @include main-menu-subitem-open;
+    }
+
+    @media (hover: hover) {
+        &__item:hover {
+            @include main-menu-item-open;
+        }
+
+        &__subitem--has-children:hover {
+            @include main-menu-subitem-open;
+        }
+    }
+}

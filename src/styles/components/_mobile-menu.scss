@@ -1,0 +1,143 @@
+@use "@/styles/abstracts/tokens" as *;
+
+
+
+.mobile-menu {
+    list-style: none;
+
+    &__item:not(:last-child) {
+        border-bottom: 1px solid var(--stroinova-gray-2);
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link,
+    &__toggle {
+        padding: 16px 0;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--stroinova-black);
+        text-decoration: none;
+        transition: color $transition-base;
+    }
+
+    &__link {
+        display: block;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    &__toggle {
+        flex: 0 0 auto;
+        padding-right: 11px;
+        padding-left: 16px;
+    }
+
+    &__sublist {
+        margin: -6px 0 0;
+        padding: 0 0 20px;
+        list-style: none;
+    }
+
+    &__sublink,
+    &__subtoggle {
+        padding: 5px 0;
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--stroinova-black);
+        text-decoration: none;
+        transition: color $transition-base;
+    }
+
+    &__sublink {
+        display: block;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding-left: 20px;
+    }
+
+    &__subtoggle {
+        flex: 0 0 auto;
+        padding-right: 11px;
+        padding-left: 16px;
+    }
+
+    &__leaves {
+        margin: 0;
+        padding: 1px 0;
+        list-style: none;
+    }
+
+    &__leaf-link {
+        display: block;
+        padding-left: 39px;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 41px;
+        color: var(--stroinova-black);
+        text-decoration: none;
+        transition: color $transition-base;
+    }
+
+    &__toggle,
+    &__subtoggle {
+        border: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            content: "+";
+            display: inline-block;
+            width: 7px;
+            text-align: left;
+        }
+    }
+
+    &__link:hover,
+    &__toggle:hover,
+    &__sublink:hover,
+    &__subtoggle:hover,
+    &__leaf-link:hover {
+        color: var(--stroinova-accent);
+    }
+
+    &__collapse {
+        display: grid;
+        grid-template-rows: 0fr;
+        visibility: hidden;
+        transition:
+            grid-template-rows $transition-base,
+            visibility $transition-base;
+    }
+
+    &__collapse-inner {
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    &__item--open > &__row > &__link,
+    &__item--open > &__row > &__toggle,
+    &__subitem--open > &__row > &__sublink,
+    &__subitem--open > &__row > &__subtoggle {
+        color: var(--stroinova-accent);
+    }
+
+    &__item--open > &__row > &__toggle::before,
+    &__subitem--open > &__row > &__subtoggle::before {
+        content: "-";
+    }
+
+    &__item--open > &__collapse,
+    &__subitem--open > &__collapse {
+        grid-template-rows: 1fr;
+        visibility: visible;
+    }
+}

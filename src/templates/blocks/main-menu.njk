@@ -1,0 +1,62 @@
+{#
+    Десктопное главное меню с выпадающими подменю (2 уровня).
+    items — массив { title, url, children? } (см. data/main-menu.njk)
+    options.dark — вариант для белой шапки (header-dark)
+#}
+{% macro render(items, options = {}) %}
+<nav class="main-menu{% if options.dark %} main-menu--dark{% endif %}" aria-label="Главное меню" data-main-menu>
+    <ul class="main-menu__list" role="list">
+        {% for item in items %}
+            {% set itemId = "main-menu-" ~ loop.index %}
+            {% if item.children %}
+                <li class="main-menu__item main-menu__item--has-children" data-entity="main-menu-item" data-id="{{ itemId }}" data-level="top">
+                    <a class="main-menu__link" href="{{ item.url }}">{{ item.title }}</a>
+                    <button
+                        class="main-menu__toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="{{ itemId }}-dropdown"
+                        aria-label="Открыть подменю «{{ item.title }}»"
+                        data-entity="main-menu-toggle"
+                        data-id="{{ itemId }}"
+                    >+</button>
+                    <ul class="main-menu__dropdown" id="{{ itemId }}-dropdown" role="list">
+                        {% for sub in item.children %}
+                            {% set subId = itemId ~ "-" ~ loop.index %}
+                            {% if sub.children %}
+                                <li class="main-menu__subitem main-menu__subitem--has-children" data-entity="main-menu-item" data-id="{{ subId }}" data-level="sub">
+                                    <a class="main-menu__sublink" href="{{ sub.url }}">{{ sub.title }}</a>
+                                    <button
+                                        class="main-menu__subtoggle"
+                                        type="button"
+                                        aria-expanded="false"
+                                        aria-controls="{{ subId }}-dropdown"
+                                        aria-label="Открыть подменю «{{ sub.title }}»"
+                                        data-entity="main-menu-toggle"
+                                        data-id="{{ subId }}"
+                                    ></button>
+                                    <ul class="main-menu__dropdown main-menu__dropdown--nested" id="{{ subId }}-dropdown" role="list">
+                                        {% for leaf in sub.children %}
+                                            <li class="main-menu__subitem">
+                                                <a class="main-menu__sublink" href="{{ leaf.url }}">{{ leaf.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="main-menu__subitem">
+                                    <a class="main-menu__sublink" href="{{ sub.url }}">{{ sub.title }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li class="main-menu__item">
+                    <a class="main-menu__link" href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endmacro %}

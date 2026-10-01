@@ -1,0 +1,57 @@
+@use "@/styles/abstracts/tokens" as *;
+
+
+.mobile-search {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 9px 0 15px;
+    background: var(--stroinova-white);
+    border: 1px solid var(--stroinova-gray-2);
+
+    &__input {
+        flex: 1 1 auto;
+        min-width: 0;
+        height: 100%;
+        padding: 0 0 4px;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--stroinova-black);
+        background: none;
+        border: 0;
+        outline: none;
+        appearance: none;
+
+        &::placeholder {
+            color: var(--stroinova-gray-5);
+            opacity: 1;
+        }
+
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
+            appearance: none;
+        }
+    }
+
+    &__button {
+        display: flex;
+        flex: 0 0 32px;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 2px;
+        padding: 0;
+        color: var(--stroinova-black);
+        background: none;
+        border: 0;
+        cursor: pointer;
+        transition: color $transition-base;
+
+        &:hover {
+            color: var(--stroinova-accent);
+        }
+    }
+}

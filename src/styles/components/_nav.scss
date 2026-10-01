@@ -92,10 +92,11 @@
     bottom: 0;
     top: 94px;
     right: 0;
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(4.5px);
     box-shadow: 0 4px 33px 0 rgba(0, 0, 0, 0.25);
     background: rgba(255, 255, 255, 0.9);
-    padding: 23px 20px;
+    padding: 23px 21px 17px 26px;
+    overflow-y: auto;
     transform: translate(0, -100%);
     transition: all $transition-base;
     z-index: $z-overlay;
@@ -103,7 +104,8 @@
     flex-direction: column;
     opacity: 0;
     visibility: hidden;
-    width: 310px;
+    width: 361px;
+    max-width: calc(100% - 16px);
 
     &.is-open {
         transform: translate(0, 0);
@@ -123,7 +125,20 @@
         }
     }
 
+    &__search {
+        flex-shrink: 0;
+        margin-bottom: 2px;
+    }
+
+    &__menu {
+        flex-shrink: 0;
+        margin: 0 7px auto 8px;
+        padding-bottom: 20px;
+    }
+
     .mobile__email {
+        flex-shrink: 0;
+        margin-left: 7px;
         font-family: var(--font-family);
         font-weight: 600;
         font-size: 14px;

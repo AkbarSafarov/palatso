@@ -1,0 +1,34 @@
+{# Единый источник данных главного меню: десктопное меню (blocks/main-menu.njk) и mobile-nav #}
+{# TODO: уточнить состав подменю «Фасады» (сейчас — типы фасадов со страницы каталога) #}
+{% set mainMenu = [
+    { title: "О компании", url: "#" },
+    {
+        title: "Фасады",
+        url: "#",
+        children: [
+            { title: "Рамочные фасады", url: "/ramochnye-fasady/" },
+            { title: "Панельные фасады", url: "/panelnye-fasady/" },
+            { title: "Раздвижные двери", url: "/razdvizhnye-dveri/" },
+            { title: "Жалюзийные фасады для мебели", url: "/zhalyuziynye-fasady-dlya-mebeli/" }
+        ]
+    },
+    {
+        title: "Информация",
+        url: "#",
+        children: [
+            {
+                title: "Патина",
+                url: "#",
+                children: [
+                    { title: "Кухни на заказ", url: "#" },
+                    { title: "Фасад Модерн", url: "#" },
+                    { title: "Распил ЛДСП", url: "#" },
+                    { title: "Фасад Премиум", url: "#" }
+                ]
+            },
+            { title: "Блог", url: "#" }
+        ]
+    },
+    { title: "Мебель", url: "#" },
+    { title: "Контакты", url: "#" }
+] %}

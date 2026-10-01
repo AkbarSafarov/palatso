@@ -1,0 +1,14 @@
+{#
+    Поиск в мобильной панели (mobile-nav).
+    options.class — микс-класс для позиционирования внутри родителя
+#}
+{% macro render(options = {}) %}
+<form class="mobile-search{% if options.class %} {{ options.class }}{% endif %}" role="search" action="#">
+    <input class="mobile-search__input" type="search" name="q" placeholder="Поиск" aria-label="Поиск по сайту">
+    <button class="mobile-search__button" type="submit" aria-label="Найти">
+        <svg width="16" height="16" aria-hidden="true" focusable="false">
+            <use href="#iconSearch" />
+        </svg>
+    </button>
+</form>
+{% endmacro %}

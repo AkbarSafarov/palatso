@@ -30,6 +30,8 @@
     </head>
   <body>
 
+    {% from "data/main-menu.njk" import mainMenu %}
+
     {% if headerDark %}
       {% include "partials/header-dark.njk" %}
     {% else %}

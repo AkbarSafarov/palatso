@@ -12,6 +12,8 @@ import { initSearchBlock } from '@/scripts/modules/searchBlock.js';
 import { initBreadcrumbSlider } from './modules/breadcrumbSlider.js';
 import { initGallerySlider } from './modules/gallerySlider.js';
 import { initCatalogSliders } from './modules/catalogSliders.js';
+import { initMainMenu } from './modules/mainMenu.js';
+import { initMobileMenu } from './modules/mobileMenu.js';
 
 const init = () => {
     initNavigation();
@@ -22,6 +24,8 @@ const init = () => {
     initBreadcrumbSlider();
     initGallerySlider();
     initCatalogSliders();
+    initMainMenu();
+    initMobileMenu();
 
     Fancybox.bind('[data-fancybox]', {
         mainClass: 'fancybox--modal',

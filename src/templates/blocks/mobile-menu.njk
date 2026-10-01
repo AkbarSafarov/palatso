@@ -1,0 +1,72 @@
+{#
+    Мобильное меню-аккордеон (3 уровня: пункт → подпункт → ссылки).
+    items — массив { title, url, children? } (см. data/main-menu.njk)
+    options.class — микс-класс для позиционирования внутри родителя
+#}
+{% macro render(items, options = {}) %}
+<ul class="mobile-menu{% if options.class %} {{ options.class }}{% endif %}" role="list" data-mobile-menu>
+    {% for item in items %}
+        {% set itemId = "mobile-menu-" ~ loop.index %}
+        {% if item.children %}
+            <li class="mobile-menu__item mobile-menu__item--has-children" data-entity="mobile-menu-item" data-id="{{ itemId }}" data-level="1">
+                <div class="mobile-menu__row">
+                    <a class="mobile-menu__link" href="{{ item.url }}">{{ item.title }}</a>
+                    <button
+                        class="mobile-menu__toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="{{ itemId }}-collapse"
+                        aria-label="Открыть подменю «{{ item.title }}»"
+                        data-entity="mobile-menu-toggle"
+                        data-id="{{ itemId }}"
+                    ></button>
+                </div>
+                <div class="mobile-menu__collapse" id="{{ itemId }}-collapse">
+                    <div class="mobile-menu__collapse-inner">
+                        <ul class="mobile-menu__sublist" role="list">
+                            {% for sub in item.children %}
+                                {% set subId = itemId ~ "-" ~ loop.index %}
+                                {% if sub.children %}
+                                    <li class="mobile-menu__subitem mobile-menu__subitem--has-children" data-entity="mobile-menu-item" data-id="{{ subId }}" data-level="2">
+                                        <div class="mobile-menu__row">
+                                            <a class="mobile-menu__sublink" href="{{ sub.url }}">{{ sub.title }}</a>
+                                            <button
+                                                class="mobile-menu__subtoggle"
+                                                type="button"
+                                                aria-expanded="false"
+                                                aria-controls="{{ subId }}-collapse"
+                                                aria-label="Открыть подменю «{{ sub.title }}»"
+                                                data-entity="mobile-menu-toggle"
+                                                data-id="{{ subId }}"
+                                            ></button>
+                                        </div>
+                                        <div class="mobile-menu__collapse" id="{{ subId }}-collapse">
+                                            <div class="mobile-menu__collapse-inner">
+                                                <ul class="mobile-menu__leaves" role="list">
+                                                    {% for leaf in sub.children %}
+                                                        <li class="mobile-menu__leaf">
+                                                            <a class="mobile-menu__leaf-link" href="{{ leaf.url }}">{{ leaf.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li class="mobile-menu__subitem">
+                                        <a class="mobile-menu__sublink" href="{{ sub.url }}">{{ sub.title }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        {% else %}
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endmacro %}
